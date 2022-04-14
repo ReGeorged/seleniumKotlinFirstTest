@@ -5,20 +5,18 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.chrome.ChromeDriver
 import org.testng.Assert
-import org.testng.annotations.AfterTest
-import org.testng.annotations.BeforeTest
-import org.testng.annotations.Test
+import org.testng.annotations.*
 
 class MyFirstTest{
     private var driver:WebDriver?=null
 
-    @BeforeTest
+    @BeforeClass
     fun createDriver(){
         System.setProperty("webdriver.chrome.driver","src/main/kotlin/com/facebook/drivers/chromedriver.exe")
         driver = ChromeDriver()
     }
 
-    @AfterTest
+    @AfterClass
     fun tearDownDriver(){
         driver!!.quit()
     }

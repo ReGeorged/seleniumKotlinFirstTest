@@ -4,9 +4,8 @@ import com.facebook.pages.NameGeneratorPage
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import org.testng.Assert
-import org.testng.annotations.AfterTest
+import org.testng.annotations.AfterClass
 import org.testng.annotations.BeforeClass
-import org.testng.annotations.BeforeTest
 import org.testng.annotations.Test
 
 class NameGeneratorTests {
@@ -20,7 +19,7 @@ class NameGeneratorTests {
         driver = ChromeDriver()
         NameGeneratorPage = NameGeneratorPage(driver!!)
     }
-    @AfterTest
+    @AfterClass
     fun tearDownDriver(){
         driver!!.quit()
     }
@@ -42,13 +41,13 @@ class NameGeneratorTests {
 
         //save the list of names check their amount
         NameGeneratorPage!!.generateButton!!.click()
-       Thread.sleep(4000L)
+       Thread.sleep(9000L)
         val firstListOfNames:List<String> = NameGeneratorPage!!.getGeneratedNames()
         Assert.assertEquals(firstListOfNames.size,expectedNumberOfNames, "not correct number of names ")
 
         //save the second list of names check their amount
         NameGeneratorPage!!.generateButton!!.click()
-       Thread.sleep(4000L)
+       Thread.sleep(9000L)
         val secondListOfNames:List<String> = NameGeneratorPage!!.getGeneratedNames()
         Assert.assertEquals(secondListOfNames.size,expectedNumberOfNames, "not correct number of names on second generation ")
 
